@@ -194,7 +194,7 @@ h6,
         position: relative;
         min-height: 450px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;
@@ -527,6 +527,13 @@ h6,
     box-shadow: none;
 }
 
+.footer .btn.btn-link.location::before {
+    position: relative;
+    content: "\f3c5";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
 .copyright {
     color: var(--light);
     background: #000B1C;
@@ -538,4 +545,9 @@ h6,
 
 .copyright a:hover {
     color: var(--primary);
+}
+
+.logo{
+     height: 70px; /* Adjust the height as needed */
+    width: auto; /* This will keep the aspect ratio of your logo intact */
 }
