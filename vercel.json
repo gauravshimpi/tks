@@ -1,9 +1,8 @@
 {
-  "redirects": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/maintenance-page.html",
-      "permanent": false
+      "src": "^/(?!maintenance-page\\.html$).*",
+      "dest": "/maintenance-page.html"
     }
   ]
 }
