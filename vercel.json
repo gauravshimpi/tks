@@ -1,8 +1,0 @@
-{
-  "routes": [
-    {
-      "src": "^/(?!maintenance-page\\.html$).*",
-      "dest": "/maintenance-page.html"
-    }
-  ]
-}
