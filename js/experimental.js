@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    var hasGsap = typeof gsap !== 'undefined';
+    if (hasGsap && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+
     /* ---------- Custom cursor ---------- */
     var dot = document.querySelector('.cursor-dot');
     var ring = document.querySelector('.cursor-ring');
@@ -21,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             requestAnimationFrame(animateRing);
         })();
 
-        document.querySelectorAll('a, button, .service-card, .xnav-toggle').forEach(function (el) {
+        document.querySelectorAll('a, button, .service-card, .duality-panel, .xnav-toggle').forEach(function (el) {
             el.addEventListener('mouseenter', function () { ring.classList.add('hovering'); });
             el.addEventListener('mouseleave', function () { ring.classList.remove('hovering'); });
         });
@@ -56,11 +61,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* ---------- Scroll reveal (IntersectionObserver, GSAP-free fallback) ---------- */
-    var revealEls = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
+    /* ---------- Scroll reveal ---------- */
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+    if (hasGsap && typeof ScrollTrigger !== 'undefined') {
+        // Group reveal elements by their parent container so siblings stagger together.
+        var groups = new Map();
+        revealEls.forEach(function (el) {
+            var key = el.closest('.services-grid, .duality, .stats-grid, .life-stats') || el.parentElement;
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(el);
+        });
+        groups.forEach(function (els) {
+            gsap.set(els, { opacity: 0, y: 36 });
+            ScrollTrigger.batch(els, {
+                start: 'top 88%',
+                once: true,
+                onEnter: function (batch) {
+                    gsap.to(batch, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1 });
+                }
+            });
+        });
+    } else if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry, i) {
+            entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     var el = entry.target;
                     var delay = el.dataset.delay || 0;
@@ -76,6 +100,78 @@ document.addEventListener('DOMContentLoaded', function () {
         revealEls.forEach(function (el) { io.observe(el); });
     } else {
         revealEls.forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+    }
+
+    /* ---------- Hero entrance ---------- */
+    if (hasGsap) {
+        gsap.timeline({ defaults: { ease: 'power3.out' } })
+            .from('.hero .eyebrow', { opacity: 0, y: 20, duration: 0.7 })
+            .from('.hero h1', { opacity: 0, y: 30, filter: 'blur(10px)', duration: 1 }, '-=0.4')
+            .from('.hero .lead', { opacity: 0, y: 20, duration: 0.8 }, '-=0.5')
+            .from('.hero-ctas .btn-x', { opacity: 0, y: 20, duration: 0.6, stagger: 0.12 }, '-=0.5');
+    }
+
+    /* ---------- Hero blob parallax ---------- */
+    var heroEl = document.querySelector('.hero');
+    var blobs = heroEl ? heroEl.querySelectorAll('.blob') : [];
+    if (hasGsap && isFinePointer && heroEl && blobs.length) {
+        var blobMovers = Array.prototype.map.call(blobs, function (blob, i) {
+            return {
+                x: gsap.quickTo(blob, 'x', { duration: 0.9, ease: 'power3.out' }),
+                y: gsap.quickTo(blob, 'y', { duration: 0.9, ease: 'power3.out' }),
+                depth: 20 + i * 12
+            };
+        });
+        heroEl.addEventListener('mousemove', function (e) {
+            var rect = heroEl.getBoundingClientRect();
+            var relX = (e.clientX - rect.left) / rect.width - 0.5;
+            var relY = (e.clientY - rect.top) / rect.height - 0.5;
+            blobMovers.forEach(function (m) {
+                m.x(relX * m.depth);
+                m.y(relY * m.depth);
+            });
+        });
+    }
+
+    /* ---------- 3D tilt on cards ---------- */
+    if (hasGsap && isFinePointer) {
+        var tiltTargets = document.querySelectorAll('.service-card, .duality-panel, .life-photo');
+        tiltTargets.forEach(function (card) {
+            var rotX = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power3.out' });
+            var rotY = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power3.out' });
+            var liftY = gsap.quickTo(card, 'y', { duration: 0.5, ease: 'power3.out' });
+
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var px = (e.clientX - rect.left) / rect.width - 0.5;
+                var py = (e.clientY - rect.top) / rect.height - 0.5;
+                rotX(py * -8);
+                rotY(px * 8);
+                liftY(-4);
+            });
+            card.addEventListener('mouseleave', function () {
+                rotX(0);
+                rotY(0);
+                liftY(0);
+            });
+        });
+    }
+
+    /* ---------- Magnetic buttons ---------- */
+    if (hasGsap && isFinePointer) {
+        document.querySelectorAll('.btn-x, .xnav-cta').forEach(function (btn) {
+            var moveX = gsap.quickTo(btn, 'x', { duration: 0.4, ease: 'power3.out' });
+            var moveY = gsap.quickTo(btn, 'y', { duration: 0.4, ease: 'power3.out' });
+            btn.addEventListener('mousemove', function (e) {
+                var rect = btn.getBoundingClientRect();
+                moveX((e.clientX - rect.left - rect.width / 2) * 0.35);
+                moveY((e.clientY - rect.top - rect.height / 2) * 0.35);
+            });
+            btn.addEventListener('mouseleave', function () {
+                moveX(0);
+                moveY(0);
+            });
+        });
     }
 
     /* ---------- Count-up stats ---------- */

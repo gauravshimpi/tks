@@ -22,6 +22,10 @@
 
 html { scroll-behavior: smooth; }
 
+#home, #about, #services, #life-solutions, #contact {
+    scroll-margin-top: 130px;
+}
+
 body {
     background: var(--bg);
     color: var(--text);
@@ -351,6 +355,82 @@ a { text-decoration: none; color: inherit; }
 /* ---------- Reveal ---------- */
 .reveal { opacity: 0; transform: translateY(36px); }
 
+/* ---------- Duality panels (About) ---------- */
+.duality {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 28px;
+    margin-top: 56px;
+    perspective: 1200px;
+}
+@media (max-width: 767.98px) {
+    .duality { grid-template-columns: 1fr; }
+    .duality-x { justify-self: center; transform: rotate(90deg); }
+}
+.duality-panel {
+    display: block;
+    position: relative;
+    padding: 40px 34px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+    transition: transform .4s var(--ease), border-color .4s var(--ease), background .4s var(--ease);
+}
+.duality-panel:hover { transform: translateY(-6px); background: var(--surface-strong); }
+.duality-business:hover { border-color: rgba(91,124,255,.55); }
+.duality-life:hover { border-color: rgba(255,61,138,.55); }
+.duality-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .4s var(--ease);
+    pointer-events: none;
+}
+.duality-business::before { background: radial-gradient(circle at 20% 0%, rgba(91,124,255,.25), transparent 60%); }
+.duality-life::before { background: radial-gradient(circle at 80% 0%, rgba(255,61,138,.25), transparent 60%); }
+.duality-panel:hover::before { opacity: 1; }
+.duality-icon {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.duality-business .duality-icon { background: linear-gradient(135deg, #5B7CFF, #3346A8); }
+.duality-life .duality-icon { background: linear-gradient(135deg, #FF3D8A, #A34CFF); }
+.duality-panel h3 { position: relative; font-size: 1.4rem; font-weight: 800; margin-bottom: 12px; }
+.duality-panel p { position: relative; color: var(--text-dim); line-height: 1.6; margin-bottom: 22px; }
+.duality-link { position: relative; font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #fff; display: inline-flex; align-items: center; gap: 8px; }
+.duality-link i { transition: transform .3s var(--ease); }
+.duality-panel:hover .duality-link i { transform: translateX(6px); }
+.duality-x {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Tilt targets ---------- */
+.service-card, .life-photo { transform-style: preserve-3d; will-change: transform; }
+
+/* ---------- Marquee hover pause ---------- */
+.marquee-band:hover .marquee-track { animation-play-state: paused; }
+
 /* ---------- Stats ---------- */
 .stats-band {
     background: var(--bg-alt);
@@ -382,6 +462,7 @@ a { text-decoration: none; color: inherit; }
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
+    perspective: 1200px;
 }
 @media (max-width: 991.98px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 599.98px) { .services-grid { grid-template-columns: 1fr; } }
@@ -458,6 +539,7 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     position: relative;
     z-index: 2;
+    perspective: 1200px;
 }
 @media (max-width: 991.98px) {
     .life-section { padding: 60px 24px; border-radius: 22px; }
