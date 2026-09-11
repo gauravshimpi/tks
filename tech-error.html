@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We'll Be Back Soon</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#4f46e5,#2563eb,#0f172a,#1e293b);
+    background-size:400% 400%;
+    animation:gradient 12s ease infinite;
+    overflow:hidden;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    width:90%;
+    max-width:650px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:24px;
+    padding:50px 40px;
+    text-align:center;
+    color:white;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+    margin-bottom:25px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+h1{
+    font-size:2.3rem;
+    margin-bottom:15px;
+}
+
+p{
+    color:#e5e7eb;
+    font-size:1.05rem;
+    line-height:1.8;
+}
+
+.loader{
+    width:65px;
+    height:65px;
+    border:6px solid rgba(255,255,255,.25);
+    border-top:6px solid #fff;
+    border-radius:50%;
+    margin:35px auto;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.note{
+    margin-top:10px;
+    font-size:.95rem;
+    color:#cbd5e1;
+}
+
+.footer{
+    margin-top:35px;
+    font-size:.9rem;
+    opacity:.8;
+}
+
+@media(max-width:600px){
+
+.container{
+padding:35px 25px;
+}
+
+h1{
+font-size:1.8rem;
+}
+
+.icon{
+width:75px;
+height:75px;
+font-size:35px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="icon">⚠️</div>
+
+<h1>Oops! We're Facing Technical Issues</h1>
+
+<p>
+Our website is temporarily unavailable due to an unexpected technical issue.
+Our team is actively working to resolve it as quickly as possible.
+</p>
+
+<div class="loader"></div>
+
+<p class="note">
+Please wait a little while and try again later.<br>
+Thank you for your patience and understanding.
+</p>
+
+<div class="footer">
+&copy; 2026 TKSBS • We'll be back online soon.
+</div>
+
+</div>
+
+</body>
+</html>
