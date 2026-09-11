@@ -174,6 +174,40 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /* ---------- Contact form ---------- */
+    var xform = document.getElementById('xcontact-form');
+    var xframe = document.getElementById('xform-hidden-frame');
+    if (xform && xframe) {
+        var submitBtn = xform.querySelector('.xform-submit');
+        var statusEl = xform.querySelector('.xform-status');
+        var awaitingResponse = false;
+
+        xform.addEventListener('submit', function (e) {
+            var honeypot = xform.querySelector('#xf-hp');
+            if (honeypot && honeypot.value) {
+                // Likely a bot: silently drop without submitting or showing an error.
+                e.preventDefault();
+                return;
+            }
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            statusEl.textContent = '';
+            statusEl.className = 'xform-status';
+            awaitingResponse = true;
+            // Native form submission proceeds into the hidden iframe from here.
+        });
+
+        xframe.addEventListener('load', function () {
+            if (!awaitingResponse) return; // ignore the initial blank-iframe load
+            awaitingResponse = false;
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            statusEl.textContent = "Thanks — we've got your message and will be in touch shortly.";
+            statusEl.classList.add('success');
+            xform.reset();
+        });
+    }
+
     /* ---------- Count-up stats ---------- */
     var counters = document.querySelectorAll('[data-count]');
     if ('IntersectionObserver' in window && counters.length) {

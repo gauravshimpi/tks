@@ -292,8 +292,63 @@
     </div>
 </section>
 
+<!-- Contact Form -->
+<section class="xsection" id="contact" style="padding-bottom: 60px;">
+    <div class="container-xl-ish">
+        <div class="contact-panel reveal">
+            <div class="contact-panel-head">
+                <div class="eyebrow">Get In Touch</div>
+                <h2>Tell Us What You Need &mdash; We'll Call You Back</h2>
+                <p>Business outsourcing question or a student ready to talk universities? Either way, this reaches the same inbox.</p>
+            </div>
+
+            <form class="xform" id="xcontact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfBbLj1cmraNsaIgljV0KAPguFrVHxCIkP0mrhVZ9MChed4AQ/formResponse" method="POST" target="xform-hidden-frame">
+                <div class="xform-row">
+                    <div class="xform-field">
+                        <label for="xf-name">Your Name</label>
+                        <input type="text" id="xf-name" name="entry.2005620554" required autocomplete="name">
+                    </div>
+                    <div class="xform-field">
+                        <label for="xf-email">Your Email</label>
+                        <input type="email" id="xf-email" name="entry.1045781291" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="xform-row">
+                    <div class="xform-field">
+                        <label for="xf-mobile">Your Mobile</label>
+                        <input type="tel" id="xf-mobile" name="entry.1166974658" autocomplete="tel">
+                    </div>
+                    <div class="xform-field">
+                        <label for="xf-subject">Subject</label>
+                        <input type="text" id="xf-subject" name="entry.1097304043">
+                    </div>
+                </div>
+                <div class="xform-field">
+                    <label for="xf-message">Message</label>
+                    <textarea id="xf-message" name="entry.1846923513" rows="4" required></textarea>
+                </div>
+
+                <!-- Honeypot: hidden from real visitors, catches basic bots -->
+                <div class="xform-hp" aria-hidden="true">
+                    <label for="xf-hp">Leave this field empty</label>
+                    <input type="text" id="xf-hp" name="hp_check" tabindex="-1" autocomplete="off">
+                </div>
+
+                <button type="submit" class="btn-x btn-x-solid xform-submit">
+                    <span class="label">Send Message</span>
+                    <span class="spinner"></span>
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+
+                <p class="xform-status" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+</section>
+<iframe name="xform-hidden-frame" id="xform-hidden-frame" style="display:none;" title="form submission target"></iframe>
+
 <!-- Footer / Contact -->
-<footer class="xfooter" id="contact">
+<footer class="xfooter">
     <div class="container-xl-ish">
         <div class="xfooter-grid">
             <div>
