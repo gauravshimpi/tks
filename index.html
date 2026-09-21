@@ -1,157 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>We'll Be Back Soon</title>
+    <meta charset="utf-8">
+    <title>TKS - Business Solutions &amp; Life Solutions</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Financial outsourcing for businesses. Career counselling for students. One team, two missions." name="description">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="img/favicon/favicon.ico" rel="icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#05060A">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-body{
-    font-family:'Poppins',sans-serif;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(-45deg,#4f46e5,#2563eb,#0f172a,#1e293b);
-    background-size:400% 400%;
-    animation:gradient 12s ease infinite;
-    overflow:hidden;
-}
+    <!-- Icon Font -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-@keyframes gradient{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
+    <!-- Bootstrap grid utilities only -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-.container{
-    width:90%;
-    max-width:650px;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.18);
-    border-radius:24px;
-    padding:50px 40px;
-    text-align:center;
-    color:white;
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-}
-
-.icon{
-    width:90px;
-    height:90px;
-    margin:auto;
-    border-radius:50%;
-    background:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:42px;
-    margin-bottom:25px;
-    animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-10px);
-    }
-}
-
-h1{
-    font-size:2.3rem;
-    margin-bottom:15px;
-}
-
-p{
-    color:#e5e7eb;
-    font-size:1.05rem;
-    line-height:1.8;
-}
-
-.loader{
-    width:65px;
-    height:65px;
-    border:6px solid rgba(255,255,255,.25);
-    border-top:6px solid #fff;
-    border-radius:50%;
-    margin:35px auto;
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.note{
-    margin-top:10px;
-    font-size:.95rem;
-    color:#cbd5e1;
-}
-
-.footer{
-    margin-top:35px;
-    font-size:.9rem;
-    opacity:.8;
-}
-
-@media(max-width:600px){
-
-.container{
-padding:35px 25px;
-}
-
-h1{
-font-size:1.8rem;
-}
-
-.icon{
-width:75px;
-height:75px;
-font-size:35px;
-}
-
-}
-</style>
+    <!-- Experimental theme -->
+    <link href="css/experimental.css" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container">
+<div class="noise"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
-<div class="icon">⚠️</div>
+<!-- Navbar -->
+<header class="xnav">
+    <div class="container-xl-ish xnav-inner" style="position: relative;">
+        <a href="index.html" class="xnav-brand">
+            <img src="img/tks-logo-transparent.png" alt="TKS Logo">
+        </a>
+        <nav class="xnav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#life-solutions">Life Solutions</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="xnav-cta">Get In Touch</a>
+        <button class="xnav-toggle" aria-label="Toggle menu"><i class="fa fa-bars"></i></button>
+    </div>
+</header>
 
-<h1>Oops! We're Facing Technical Issues</h1>
+<!-- Hero -->
+<section class="hero" id="home">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
 
-<p>
-Our website is temporarily unavailable due to an unexpected technical issue.
-Our team is actively working to resolve it as quickly as possible.
-</p>
+    <div class="container-xl-ish hero-inner">
+        <div class="eyebrow"><span class="dot"></span> TKS Business Solutions &times; TKS Life Solutions</div>
+        <h1>We Number-Crunch<br>Your Business. <span class="grad">We Launch Your Next Chapter.</span></h1>
+        <p class="lead">25 years of financial outsourcing for companies across India, the US &amp; the GCC &mdash;
+            and personal career counselling that sends students to universities around the world. Same team, two missions.</p>
+        <div class="hero-ctas">
+            <a href="#services" class="btn-x btn-x-solid">Explore Business Services <i class="fa fa-arrow-right"></i></a>
+            <a href="#life-solutions" class="btn-x btn-x-ghost">Discover Life Solutions <i class="fa fa-graduation-cap"></i></a>
+        </div>
+    </div>
 
-<div class="loader"></div>
+    <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</section>
 
-<p class="note">
-Please wait a little while and try again later.<br>
-Thank you for your patience and understanding.
-</p>
-
-<div class="footer">
-&copy; 2026 TKSBS • We'll be back online soon.
+<!-- Marquee -->
+<div class="marquee-band">
+    <div class="marquee-track">
+        <span>
+            <span><i class="fa fa-circle"></i>Tax Filing</span>
+            <span><i class="fa fa-circle"></i>GST Compliance</span>
+            <span><i class="fa fa-circle"></i>Company Valuation</span>
+            <span><i class="fa fa-circle"></i>Mergers &amp; Acquisitions</span>
+            <span><i class="fa fa-circle"></i>Student Counselling</span>
+            <span><i class="fa fa-circle"></i>Study Abroad</span>
+            <span><i class="fa fa-circle"></i>Budgeting</span>
+            <span><i class="fa fa-circle"></i>Outsourcing</span>
+        </span>
+        <span>
+            <span><i class="fa fa-circle"></i>Tax Filing</span>
+            <span><i class="fa fa-circle"></i>GST Compliance</span>
+            <span><i class="fa fa-circle"></i>Company Valuation</span>
+            <span><i class="fa fa-circle"></i>Mergers &amp; Acquisitions</span>
+            <span><i class="fa fa-circle"></i>Student Counselling</span>
+            <span><i class="fa fa-circle"></i>Study Abroad</span>
+            <span><i class="fa fa-circle"></i>Budgeting</span>
+            <span><i class="fa fa-circle"></i>Outsourcing</span>
+        </span>
+    </div>
 </div>
 
-</div>
+<!-- Stats -->
+<section class="stats-band">
+    <div class="container-xl-ish" style="padding: 80px 24px;">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-num"><span data-count="25" data-suffix="+">0</span></div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item reveal" data-delay="80">
+                <div class="stat-num"><span data-count="11" data-suffix="">0</span></div>
+                <div class="stat-label">Core Business Services</div>
+            </div>
+            <div class="stat-item reveal" data-delay="160">
+                <div class="stat-num"><span data-count="4" data-suffix="">0</span></div>
+                <div class="stat-label">Global Regions</div>
+            </div>
+            <div class="stat-item reveal" data-delay="240">
+                <div class="stat-num"><span data-count="500" data-suffix="+">0</span></div>
+                <div class="stat-label">Clients &amp; Students Guided</div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- About -->
+<section class="xsection" id="about">
+    <div class="container-xl-ish">
+        <div class="xsection-head reveal">
+            <div class="eyebrow">Who We Are</div>
+            <h2>A Finance Team By Day. A Career Launchpad By Design.</h2>
+            <p>TKS Business Solutions has spent 25 years handling the numbers &mdash; tax filing, GST, accounting outsourcing,
+                valuations &mdash; for clients across India, the US and the GCC. Through TKS Life Solutions, the channel partner
+                of Edumilestone, that same rigor goes into guiding students toward the right university and career path.</p>
+        </div>
+
+        <div class="duality">
+            <a href="#services" class="duality-panel duality-business reveal">
+                <div class="duality-icon"><i class="fa fa-chart-line"></i></div>
+                <h3>Business Solutions</h3>
+                <p>Tax, GST, valuations, M&amp;A and outsourcing for companies across India, the US &amp; the GCC.</p>
+                <span class="duality-link">See all 11 services <i class="fa fa-arrow-right"></i></span>
+            </a>
+
+            <div class="duality-x reveal">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l12 12M14 2L2 14"/></svg>
+            </div>
+
+            <a href="#life-solutions" class="duality-panel duality-life reveal">
+                <div class="duality-icon"><i class="fa fa-graduation-cap"></i></div>
+                <h3>Life Solutions</h3>
+                <p>1-to-1 career counselling, university selection and study-abroad support with Edumilestone.</p>
+                <span class="duality-link">Meet the counsellors <i class="fa fa-arrow-right"></i></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="xsection" id="services" style="padding-top: 0;">
+    <div class="container-xl-ish">
+        <div class="xsection-head reveal">
+            <div class="eyebrow">Business Solutions</div>
+            <h2>Built For Businesses That Don't Sit Still</h2>
+            <p>Eleven core services covering compliance, growth and everything in between &mdash; run by people who treat your books like their own.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal" data-delay="0">
+                <span class="service-index">01</span>
+                <div class="service-icon"><i class="fa fa-file-invoice-dollar"></i></div>
+                <h3>US Tax &amp; Accounts Outsourcing</h3>
+                <p>Tax filing and accounts maintenance outsourcing for US clients, handled end-to-end.</p>
+            </div>
+            <div class="service-card reveal" data-delay="40">
+                <span class="service-index">02</span>
+                <div class="service-icon"><i class="fa fa-receipt"></i></div>
+                <h3>GST Filing &amp; Accounting</h3>
+                <p>GST filing for Indian clients plus full accounts outsourcing support.</p>
+            </div>
+            <div class="service-card reveal" data-delay="80">
+                <span class="service-index">03</span>
+                <div class="service-icon"><i class="fa fa-balance-scale"></i></div>
+                <h3>Company Valuation</h3>
+                <p>Clear, defensible valuations for fundraising, M&amp;A or internal decision-making.</p>
+            </div>
+            <div class="service-card reveal" data-delay="0">
+                <span class="service-index">04</span>
+                <div class="service-icon"><i class="fa fa-calculator"></i></div>
+                <h3>Budgeting</h3>
+                <p>Budgets built to actually be used &mdash; not filed away and forgotten.</p>
+            </div>
+            <div class="service-card reveal" data-delay="40">
+                <span class="service-index">05</span>
+                <div class="service-icon"><i class="fa fa-handshake"></i></div>
+                <h3>Mergers &amp; Acquisitions</h3>
+                <p>Support through diligence, structuring and integration.</p>
+            </div>
+            <div class="service-card reveal" data-delay="80">
+                <span class="service-index">06</span>
+                <div class="service-icon"><i class="fa fa-project-diagram"></i></div>
+                <h3>Joint Venture Assistance</h3>
+                <p>Structuring and advisory for partnerships that need to hold up long-term.</p>
+            </div>
+            <div class="service-card reveal" data-delay="0">
+                <span class="service-index">07</span>
+                <div class="service-icon"><i class="fa fa-chart-line"></i></div>
+                <h3>MIS &amp; Variance Analysis</h3>
+                <p>Management reporting that tells you what actually changed, and why.</p>
+            </div>
+            <div class="service-card reveal" data-delay="40">
+                <span class="service-index">08</span>
+                <div class="service-icon"><i class="fa fa-coins"></i></div>
+                <h3>Costing</h3>
+                <p>Product and service costing that protects your margins.</p>
+            </div>
+            <div class="service-card reveal" data-delay="80">
+                <span class="service-index">09</span>
+                <div class="service-icon"><i class="fa fa-globe"></i></div>
+                <h3>GCC VAT Solutions</h3>
+                <p>VAT compliance across the GCC, kept current with local regulation.</p>
+            </div>
+            <div class="service-card reveal" data-delay="0">
+                <span class="service-index">10</span>
+                <div class="service-icon"><i class="fa fa-life-ring"></i></div>
+                <h3>Business Turnaround Advisory</h3>
+                <p>Practical advisory for businesses that need to change direction fast.</p>
+            </div>
+            <div class="service-card reveal" data-delay="40">
+                <span class="service-index">11</span>
+                <div class="service-icon"><i class="fa fa-tasks"></i></div>
+                <h3>Outsourcing</h3>
+                <p>Hand off the back-office work and get back to running the business.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Life Solutions -->
+<section class="xsection" id="life-solutions">
+    <div class="container-xl-ish">
+        <div class="life-section reveal">
+            <span class="blob blob-1" style="top:-160px; left:-160px;"></span>
+            <span class="blob blob-2" style="bottom:-160px; right:-160px;"></span>
+
+            <div class="life-grid">
+                <div class="life-photo">
+                    <img src="img/meta/student-career-counselling.png" alt="Student career counselling session">
+                </div>
+                <div>
+                    <div class="eyebrow">TKS Life Solutions</div>
+                    <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 800; margin-bottom: 18px;">Your Path To Success, Guided By Experts</h2>
+                    <p style="color: var(--text-dim); line-height: 1.7;">TKS Business Solutions is the official channel partner of Edumilestone, bringing
+                        personalised student career counselling to help every candidate choose the right educational and career path.</p>
+
+                    <ul class="life-checklist">
+                        <li><i class="fa fa-check"></i>1-to-1 career counselling sessions</li>
+                        <li><i class="fa fa-check"></i>Course and university selection</li>
+                        <li><i class="fa fa-check"></i>Education loans, visas and air tickets</li>
+                        <li><i class="fa fa-check"></i>Accommodation abroad and IELTS support</li>
+                        <li><i class="fa fa-check"></i>One-stop support for every educational need</li>
+                    </ul>
+
+                    <a href="https://tkslifesolutions.edumilestones.com/" target="_blank" rel="noopener noreferrer" class="btn-x btn-x-solid">Talk To A Counsellor <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="life-stats">
+                <div class="life-stat"><div class="num"><span data-count="500" data-suffix="+">0</span></div><div class="lbl">Students Guided</div></div>
+                <div class="life-stat"><div class="num"><span data-count="50" data-suffix="+">0</span></div><div class="lbl">Partner Universities</div></div>
+                <div class="life-stat"><div class="num"><span data-count="10" data-suffix="+">0</span></div><div class="lbl">Countries Covered</div></div>
+                <div class="life-stat"><div class="num"><span data-count="25" data-suffix="+">0</span></div><div class="lbl">Years Combined Experience</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA band -->
+<section class="cta-band">
+    <div class="container-xl-ish">
+        <h2>Ready To Take The Leap &mdash; In Business Or In Life?</h2>
+        <div class="hero-ctas">
+            <a href="#contact" class="btn-x btn-x-solid">Get In Touch <i class="fa fa-arrow-right"></i></a>
+            <a href="https://tkslifesolutions.edumilestones.com/" target="_blank" rel="noopener noreferrer" class="btn-x btn-x-ghost">Talk To A Counsellor</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="xsection" id="contact" style="padding-bottom: 60px;">
+    <div class="container-xl-ish">
+        <div class="contact-panel reveal">
+            <div class="contact-panel-head">
+                <div class="eyebrow">Get In Touch</div>
+                <h2>Tell Us What You Need &mdash; We'll Call You Back</h2>
+                <p>Business outsourcing question or a student ready to talk universities? Either way, this reaches the same inbox.</p>
+            </div>
+
+            <form class="xform" id="xcontact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfBbLj1cmraNsaIgljV0KAPguFrVHxCIkP0mrhVZ9MChed4AQ/formResponse" method="POST" target="xform-hidden-frame">
+                <div class="xform-row">
+                    <div class="xform-field">
+                        <label for="xf-name">Your Name</label>
+                        <input type="text" id="xf-name" name="entry.2005620554" required autocomplete="name">
+                    </div>
+                    <div class="xform-field">
+                        <label for="xf-email">Your Email</label>
+                        <input type="email" id="xf-email" name="entry.1045781291" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="xform-row">
+                    <div class="xform-field">
+                        <label for="xf-mobile">Your Mobile</label>
+                        <input type="tel" id="xf-mobile" name="entry.1166974658" autocomplete="tel">
+                    </div>
+                    <div class="xform-field">
+                        <label for="xf-subject">Subject</label>
+                        <input type="text" id="xf-subject" name="entry.1116005897">
+                    </div>
+                </div>
+                <div class="xform-field">
+                    <label for="xf-message">Message</label>
+                    <textarea id="xf-message" name="entry.839337160" rows="4" required></textarea>
+                </div>
+
+                <!-- Honeypot: hidden from real visitors, catches basic bots -->
+                <div class="xform-hp" aria-hidden="true">
+                    <label for="xf-hp">Leave this field empty</label>
+                    <input type="text" id="xf-hp" name="hp_check" tabindex="-1" autocomplete="off">
+                </div>
+
+                <button type="submit" class="btn-x btn-x-solid xform-submit">
+                    <span class="label">Send Message</span>
+                    <span class="spinner"></span>
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+
+                <p class="xform-status" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+</section>
+<iframe name="xform-hidden-frame" id="xform-hidden-frame" style="display:none;" title="form submission target"></iframe>
+
+<!-- Footer / Contact -->
+<footer class="xfooter">
+    <div class="container-xl-ish">
+        <div class="xfooter-grid">
+            <div class="footer-info">
+                <div>
+                    <h4>Our Office</h4>
+                    <p><i class="fa fa-map-marker-alt me-2"></i>109, Trade Square, Above Axis Bank, Khokhra Circle, Khokhra, Ahmedabad</p>
+                    <p><i class="fa fa-phone-alt me-2"></i>+9195009 65565</p>
+                    <p><i class="fa fa-envelope me-2"></i>contact@tksbusinesssolutions.com</p>
+                    <div class="socials">
+                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Our Services</a>
+                    <a href="#life-solutions">Life Solutions</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div>
+                    <h4>Our Presence</h4>
+                    <a href="#">India</a>
+                    <a href="#">GCC</a>
+                    <a href="#">Egypt</a>
+                    <a href="#">Europe</a>
+                </div>
+            </div>
+
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5824450476252!2d72.61648287531325!3d23.002377179187913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e874f0d8a35c9%3A0xcfb24fe569fff2ef!2sTrade%20Square!5e0!3m2!1sen!2sin!4v1717252504269!5m2!1sen!2sin"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="TKS Business Solutions office location"></iframe>
+                <a class="footer-map-cta" href="https://www.google.com/maps/search/?api=1&query=23.002377179187913,72.61648287531325" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-location-arrow"></i> Get Directions
+                </a>
+            </div>
+        </div>
+        <div class="xfooter-bottom">
+            <div>&copy; TKS, All Rights Reserved.</div>
+            <div>Designed By <a href="https://www.linkedin.com/in/er-gaurav-shimpi/" style="color:#fff; display:inline;">Gaurav Shimpi</a></div>
+        </div>
+    </div>
+</footer>
+
+<a href="#home" class="x-top"><i class="fa fa-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/experimental.js"></script>
 </body>
 </html>
